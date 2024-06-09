@@ -25,4 +25,4 @@ jobs:
     - name: Build and push
       run: |
         docker build -t munawarraza/demoapp:$(date +%F-%H-%M-%S) .
-        docker push  munawarraza/demoapp:$(date +%F-%H-%M-%S)
+        docker push  munawarraza/demoapp:$(docker images | awk '{print $0}' |awk 'NR==2 {print $2}')
