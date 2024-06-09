@@ -23,8 +23,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        push: true
-        tags: munawarraza/demoapp:$(date +%F)
-
+      run: |
+        docker build -t munawarraza/demoapp:$(date +%F-%H-%M-%S) .
+        docker push  munawarraza/demoapp:$(date +%F-%H-%M-%S)
