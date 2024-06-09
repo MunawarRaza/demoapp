@@ -12,11 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build docker image
-      run: docker build . --file Dockerfile --tag munawarraza/demoapp:$(date +%s)
+      run: docker build . --file Dockerfile --tag munawarraza/demoapp:$(date +%F)
   Push:
     needs: build
     runs-on: ubuntu-latest
     steps:
     - name: push image
-      run: docker push munawarraza/demoapp:$(date +%s)
+      run: docker push munawarraza/demoapp:$(date +%F)
     
