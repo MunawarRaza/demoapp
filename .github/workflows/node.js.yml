@@ -13,3 +13,4 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build docker image
       run: docker build . --file Dockerfile --tag munawarraza/demoapp:$(date +%s)
+    - name: docker push munawarraza/demoapp:$(date +%s)
