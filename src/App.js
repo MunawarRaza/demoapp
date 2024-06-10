@@ -10,7 +10,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
 	<p>
-	  Welcome to my First React App.
+	  Welcome to my First React App. This is my first app
 	</p>
         <a
           className="App-link"
