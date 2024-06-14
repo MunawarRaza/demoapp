@@ -1,5 +1,5 @@
 name: Node.js CI
-run-name: ${{ github.actor }} is learning GitHub Actions
+#run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   push:
     branches: [ "main" ]
