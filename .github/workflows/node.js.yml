@@ -9,9 +9,9 @@ on:
 jobs:
   get-environment:
     name: Get environment
+    runs-on: ubuntu-latest
     outputs:
       my_env: ${{ steps.setenv.outputs.my_env }}
-    runs-on: ubuntu-latest
     steps:
     - name: Checkout github code
       id: checkout-id
@@ -24,6 +24,7 @@ jobs:
           echo "my_env=production" >> $GITHUB_OUTPUT
         fi
   build:
+    name: Build and push
     runs-on: ubuntu-latest
     needs: get-environment
     steps:
