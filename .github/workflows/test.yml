@@ -12,14 +12,12 @@ jobs:
     - name: set outputs
       id: set-output 
       shell: bash
-      run: |
-        echo "age=23" $GITHUB_OUTPUT 
+      run: echo "age=23" $GITHUB_OUTPUT 
         
     
     - name: access outputs
       id: access-output
-      run: |
-        echo ${{ steps.set-output.outputs.age }}
+      run: echo ${{ steps.set-output.outputs.age }}
 
   # this is the ID which specifiese this entire step
   #$GITHUB_OUTPUT is an environment variable. It used to store the value from the step. These values can be used in any subsequent step or jobs
