@@ -1,0 +1,22 @@
+name: Test Workflow
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+  
+  steps:
+  - name: set outputs
+    id: set-output # this is the ID which specifiese this entire step
+    shell: bash
+    run: |
+      echo "age=23" $GITHUB_OUTPUT 
+      # $GITHUB_OUTPUT is an environment variable. It used to store the value from the step. These values can be used in any subsequent step or jobs
+  
+  - name: access outputs
+    id: access-output
+    run: |
+      echo ${{ steps.set-output.outputs.age }}
