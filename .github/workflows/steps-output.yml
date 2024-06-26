@@ -46,6 +46,8 @@ jobs:
       run: |
         echo ${{ steps.set-env.outputs.my_env }}
 
+# Note: We can not access the output of the step in any other job. output of the steps is accessible only in that perticuller job
+
 
   
   

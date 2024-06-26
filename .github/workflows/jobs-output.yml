@@ -18,5 +18,7 @@ jobs:
     - name: Get output
       id: get-output
       run: |
-        echo ${{ step.set-output.outputs.age }}
-        
+        echo "Value of age is ${{ steps.set-output.outputs.age }}"
+
+
+# Note: We can not access the output of the step in any other job. output of the steps is accessible only in that perticuller job
