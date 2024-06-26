@@ -14,11 +14,11 @@ jobs:
     env:
       JOB_LEVEL_VARIABLE: stage
     steps:
-    - name: Access ${{env.WORKFLOW_LEVEL_VARIABLE}} variables
+    - name: Access WORKFLOW LEVEL VARIABLE variables
       run:
         echo ${{env.WORKFLOW_LEVEL_VARIABLE}}
       
-    - name: Access ${{env.JOB_LEVEL_VARIABLE}} variable
+    - name: Access JOB LEVEL VARIABLE variable
       run:
         echo ${{env.JOB_LEVEL_VARIABLE}}
     
