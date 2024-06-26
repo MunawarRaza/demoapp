@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Set and get the output from steps
 on:
   push:
     branches: [ "main" ]

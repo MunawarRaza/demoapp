@@ -1,0 +1,22 @@
+name:  Output from jobs
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set output
+      id: set-output
+      shell: bash
+      run: |
+        echo "age=23" >> $GITHUB_OUTPUT
+    
+    - name: Get output
+      id: get-output
+      run: |
+        echo ${{ step.set-output.outputs.age }}
+        
