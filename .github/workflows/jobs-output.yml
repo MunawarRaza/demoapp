@@ -28,7 +28,7 @@ jobs:
     steps:
     - name: access the value from job1
       run: |
-        echo "Value of job1_name is ${{ needs.job1.outputs.jobs1_name }}"
+        echo "Value of job1_name is ${{ needs.job1.outputs.job1_name }}"
 
 
 # Note: We can not access the output of the step in any other job. output of the steps is accessible only in that perticuller job
