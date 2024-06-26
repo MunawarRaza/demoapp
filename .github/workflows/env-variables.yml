@@ -9,8 +9,8 @@ env:
     value: Demo
 jobs:
   job1:
-  runs-on: ubuntu-latest
-  steps:
-  - name: Access environment variables
-    run:
-      echo ${{env.ENVIRONMENT_LEVEL_VARIABLE}}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Access environment variables
+      run:
+        echo ${{env.ENVIRONMENT_LEVEL_VARIABLE}}
