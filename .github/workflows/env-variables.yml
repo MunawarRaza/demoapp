@@ -17,8 +17,7 @@ jobs:
     - name: Access ${{env.WORKFLOW_LEVEL_VARIABLE}} variables
       run:
         echo ${{env.WORKFLOW_LEVEL_VARIABLE}}
-
-    steps:
+      
     - name: Access ${{env.JOB_LEVEL_VARIABLE}} variable
       run:
         echo ${{env.JOB_LEVEL_VARIABLE}}
