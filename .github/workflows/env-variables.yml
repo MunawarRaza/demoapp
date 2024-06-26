@@ -6,8 +6,8 @@ on:
     branches: [ "main" ]
 
 env:
-  - name: ENVIRONMENT_LEVEL_VARIABLE
-    value: Demo
+  ENVIRONMENT_LEVEL_VARIABLE: demo
+
 jobs:
   job1:
     runs-on: ubuntu-latest
