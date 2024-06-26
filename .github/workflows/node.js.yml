@@ -23,10 +23,10 @@ jobs:
         elif [[ "${{ github.ref }}" == "refs/heads/production" ]]; then
           echo "my_env=production" >> $GITHUB_OUTPUT
         fi
-    - name: Printing the my_env value
+    - name: Printing the value
       run: |
-        echo "Printing the my_env values"
-        echo ${{ output.my_env }}
+        echo "Printing the values"
+        echo ${{ outputs.my_env }}
   build:
     runs-on: ubuntu-latest
     needs: get-environment
