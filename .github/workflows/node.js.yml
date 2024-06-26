@@ -26,7 +26,7 @@ jobs:
     - name: Printing the my_env value
       run: |
         echo "Printing the my_env values"
-        echo ${{ GITHUB_OUTPUT }}
+        echo ${{ output.my_env }}
   build:
     runs-on: ubuntu-latest
     needs: get-environment
