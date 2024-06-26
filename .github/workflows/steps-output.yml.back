@@ -1,0 +1,54 @@
+name: Set and get the output from steps
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: set outputs
+      id: set-output # this is the ID which specifiese this entire step
+      shell: bash
+      run: |
+        echo "age=23" >> $GITHUB_OUTPUT
+      #$GITHUB_OUTPUT is an environment variable. It used to store the value from the step. These values can be used in any subsequent step or jobs
+
+    - name: checkout the code
+      uses: actions/checkout@v4
+      id: checkout-id
+
+    - name: Get the branch name
+      id: set-env
+      run: |
+        if [[ "${{ github.ref }}" == "refs/heads/stage" ]]; then
+          echo "my_env=stage" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.ref }}" == "refs/heads/quality" ]]; then
+          echo "my_env=quality" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          echo "my_env=main" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: access outputs
+      id: access-output
+      run: |
+        echo ${{ steps.set-output.outputs.age }}
+      # In above line we are accessing the value of 'age' from the previous step. 
+      # steps --> means the output from the step
+      # set-output --> id of the perticuler step from where we will be getting the output
+      # outputs --> default outputs object 
+      # age --> accessing the value of age variable
+
+    - name: Access the output of my_env
+      id: access-output-my-env
+      run: |
+        echo ${{ steps.set-env.outputs.my_env }}
+
+# Note: We can not access the output of the step in any other job. output of the steps is accessible only in that perticuller job
+
+
+  
+  
+

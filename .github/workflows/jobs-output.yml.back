@@ -1,0 +1,35 @@
+name:  Set and get the output from jobs
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      job1_name: ${{ steps.set-output.outputs.age }}
+    # Since we cannot access the output from steps to anyother job. That is why we are using this outputs here
+    steps:
+    - name: Set output
+      id: set-output
+      shell: bash
+      run: |
+        echo "age=23" >> $GITHUB_OUTPUT
+    
+    - name: Get output
+      id: get-output
+      run: |
+        echo "Value of age is ${{ steps.set-output.outputs.age }}"
+  
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - name: access the value from job1
+      run: |
+        echo "Value of job1_name is ${{ needs.job1.outputs.job1_name }}"
+
+
+# Note: We can not access the output of the step in any other job. output of the steps is accessible only in that perticuller job

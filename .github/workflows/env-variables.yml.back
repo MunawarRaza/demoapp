@@ -1,0 +1,27 @@
+name:  Use different environment variables
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  WORKFLOW_LEVEL_VARIABLE: demo
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL_VARIABLE: stage
+    steps:
+    - name: Access WORKFLOW LEVEL VARIABLE variables
+      run:
+        echo ${{env.WORKFLOW_LEVEL_VARIABLE}}
+      
+    - name: Access JOB LEVEL VARIABLE variable
+      run:
+        echo ${{env.JOB_LEVEL_VARIABLE}}
+    
+
+    
+      
