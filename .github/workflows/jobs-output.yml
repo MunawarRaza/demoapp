@@ -1,4 +1,4 @@
-name:  Output from jobs
+name:  Set and get the output from jobs
 on:
   push:
     branches: [ "main" ]
@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       job1_name: ${{ steps.set-output.outputs.age }}
+    # Since we cannot access the output from steps to anyother job. That is why we are using this outputs here
     steps:
     - name: Set output
       id: set-output
