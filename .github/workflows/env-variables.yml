@@ -6,12 +6,23 @@ on:
     branches: [ "main" ]
 
 env:
-  ENVIRONMENT_LEVEL_VARIABLE: demo
+  WORKFLOW_LEVEL_VARIABLE: demo
 
 jobs:
   job1:
     runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL_VARIABLE: stage
     steps:
-    - name: Access environment variables
+    - name: Access ${{env.WORKFLOW_LEVEL_VARIABLE}} variables
       run:
-        echo ${{env.ENVIRONMENT_LEVEL_VARIABLE}}
+        echo ${{env.WORKFLOW_LEVEL_VARIABLE}}
+
+    steps:
+    - name: Access ${{env.JOB_LEVEL_VARIABLE}} variable
+      run:
+        echo ${{env.JOB_LEVEL_VARIABLE}}
+    
+
+    
+      
