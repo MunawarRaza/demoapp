@@ -1,0 +1,14 @@
+name:  Use different environment variables
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+env:
+  - name: ENVIRONMENT_LEVEL_VARIABLE
+    value: Demo
+jobs:
+  job1:
+  - name: Access environment variables
+    run:
+      echo ${{env.ENVIRONMENT_LEVEL_VARIABLE}}
